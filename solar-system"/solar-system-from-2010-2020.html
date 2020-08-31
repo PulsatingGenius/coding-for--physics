@@ -1,0 +1,32 @@
+// Array of planet name, distance from sun in AU, and color - used for each iteration below
+- var planets = [{name:"mercury", au:.4, color:"silver"}, {name:"venus", au:.7, color:"goldenrod"}, {name:"earth", au:1, color:"deepskyblue"}, {name:"mars", au:1.5, color:"crimson"}, {name:"jupiter", au:5.2, color:"sandybrown"}, {name:"saturn", au:9.6, color:"gold"}, {name:"uraanus", au:19.2, color:"cyan"}, {name:"neptune", au:30, color:"dodgerblue"}];
+
+// Mixin for creating SVG orbit, planet, trail, and mask
+mixin planetize(planet, au, color)
+  -var au = au * 25; // Controls overall zoom level
+  -var au2 = au* .55; // Necessary value for circular path
+  -var path = "M0,-"+au+" C"+au2+",-"+au+" "+au+",-"+au2+" "+au+",0 C"+au+","+au2+" "+au2+","+au+" 0,"+au+" C-"+au2+","+au+" -"+au+","+au2+" -"+au+",0 C-"+au+",-"+au2+" -"+au2+",-"+au+" 0,-"+au+" Z";
+  // Rectangle for planet's trail
+  clipPath(id="trail"+planet)
+    rect(class="mask mask--"+planet, width="0", height="25", y="0")
+  // Path for orbit
+  path(class="orbit orbit--"+planet, stroke=color, d=path, id="orbit--"+planet)
+  // Path for trail, same as orbit - gets exposed by clippath
+  path(class="trail trail--"+planet, stroke=color, d=path, clip-path="url(#trail"+planet+")")
+  // Circle for planet
+  circle(class="planet planet--"+planet, r=3, fill=color)
+
+
+header
+  h1="The Solar System from 2010 to 2020"
+  h2(id="year")="2020"
+  button(id="button", onClick="playAnimation()")="Pause"
+    
+svg(class="solarsystem")
+  circle(class="sun", r="2", fill="#fff")
+
+  //- Template for each planet
+  each planet in planets
+    g(id=planet.name)
+      +planetize(planet.name,planet.au, planet.color)
+  
