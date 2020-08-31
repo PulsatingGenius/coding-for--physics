@@ -12,7 +12,7 @@ In most experiments, the process of data analysis is complex enough to require s
 ## 📌 Here’s Why You Should Be Coding In Your Physics Course
 
 like data science, Physics too involves a lot of data analysis. They deal with nuclear data from detectors and astronomical data from telescopes to perform all sorts of analysis and studies needed. So they too need to upskill themselves with programming, at least with the very basic languages useful to them for analysis like Matlab and Python.
-If there is someone in this background of Physics who does not know programming, he is really lagging a big time in his field. Even if they think that they know the theory and practical behind their subject of interest, programming does come in handy to for a number of reasons. In this article, we will give you five reasons to learn programming being a Physics student.
+If there is someone in this background of Physics who does not know programming, he is really lagging a big time in his field. Even if they think that they know the theory and practical behind their subject of interest, programming does come in handy to for a number of reasons. 
 
 ## 💥 How to Contribute?
 
